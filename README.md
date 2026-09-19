@@ -13,8 +13,6 @@
 
 <hr />
 
-### [📦 Releases](https://github.com/Priyadharshan2003/tilt/releases) | [📦 Packages](https://github.com/users/Priyadharshan2003/packages?repo_name=tilt)
-
 > **🎉 Version 0.1.0 Installers are ready!**
 > You can find the newly built Windows installers here:
 > - **MSI Installer**: `src-tauri/target/release/bundle/msi/Tilt_0.1.0_x64_en-US.msi`
