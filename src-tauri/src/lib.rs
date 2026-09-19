@@ -20,9 +20,9 @@ fn insert_dummy_event(state: tauri::State<'_, db::DbState>) -> Result<String, St
 }
 
 #[tauri::command]
-fn get_dummy_events(state: tauri::State<'_, db::DbState>) -> Result<Vec<db::FrictionEvent>, String> {
+fn get_events(state: tauri::State<'_, db::DbState>) -> Result<Vec<db::FrictionEvent>, String> {
     let db = state.db.lock().unwrap();
-    let mut stmt = db.prepare("SELECT id, timestamp, event_type, intensity FROM friction_events").map_err(|e| e.to_string())?;
+    let mut stmt = db.prepare("SELECT id, timestamp, event_type, intensity FROM friction_events ORDER BY timestamp DESC LIMIT 1000").map_err(|e| e.to_string())?;
     let event_iter = stmt.query_map([], |row| {
         Ok(db::FrictionEvent {
             id: row.get(0)?,
@@ -57,7 +57,7 @@ pub fn run() {
             app.manage(db_state);
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![greet, insert_dummy_event, get_dummy_events])
+        .invoke_handler(tauri::generate_handler![greet, insert_dummy_event, get_events])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

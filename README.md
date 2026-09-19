@@ -1,26 +1,39 @@
 <div align="center">
   <img src="src-tauri/icons/128x128.png" alt="Tilt Logo" width="128" />
   <h1>Tilt</h1>
-  <p><strong>A privacy-first developer stress and friction tracking daemon.</strong></p>
+  <p><strong>A privacy-first Developer Operating System for Self-Awareness.</strong></p>
+  
+  <p>
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Priyadharshan2003/tilt?style=for-the-badge&color=f97316">
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/Priyadharshan2003/tilt?style=for-the-badge&color=3b82f6">
+    <img alt="GitHub followers" src="https://img.shields.io/github/followers/Priyadharshan2003?style=for-the-badge&color=10b981">
+    <img alt="GitHub License" src="https://img.shields.io/github/license/Priyadharshan2003/tilt?style=for-the-badge">
+  </p>
 </div>
 
 <hr />
 
 ### [📦 Releases](https://github.com/Priyadharshan2003/tilt/releases) | [📦 Packages](https://github.com/users/Priyadharshan2003/packages?repo_name=tilt)
 
+> **🎉 Version 0.1.0 Installers are ready!**
+> You can find the newly built Windows installers here:
+> - **MSI Installer**: `src-tauri/target/release/bundle/msi/Tilt_0.1.0_x64_en-US.msi`
+> - **EXE Setup**: `src-tauri/target/release/bundle/nsis/Tilt_0.1.0_x64-setup.exe`
+
 ## 🧠 What is Tilt?
 
-**Tilt** is a blazingly fast, deeply native desktop application built for developers who want to understand their workflow friction and stress patterns. 
+**Tilt** is a blazingly fast, deeply native desktop application built for developers who want to understand their workflow friction and stress patterns. We are building a premium **Developer Operating System** featuring a Bento-box UI, real-time stress tracking, and an AI-driven Insights engine.
 
-By running quietly in the background, Tilt analyzes raw OS-level input metrics (like aggressive backspacing, rapid clicking, and mouse movement intensity) to calculate a real-time **Stress Score**.
+By running quietly in the background, Tilt analyzes raw OS-level input metrics (like aggressive backspacing, rapid window switching, and mouse movement intensity) to calculate a real-time **Stress Score** and **Chaos Score**.
 
-> **⚠️ Privacy First**: Tilt is designed with a strict zero-content tracking manifesto. It **never** logs the characters you type, the applications you use, or the content on your screen. It only tracks metadata and physical cadence.
+> **⚠️ Privacy First**: Tilt is designed with a strict zero-content tracking manifesto. It **never** logs the characters you type or the content on your screen. It only tracks metadata and physical cadence.
 
 ## ✨ Features
 
 - **Global Input Hooking**: Tracks keystroke friction and mouse movement intensity across the entire operating system.
-- **Privacy-First Daemon**: 100% anonymous processing. Zero character logging.
-- **Real-time Dashboard**: A sleek, buttery-smooth Framer Motion dashboard tracking your live stress score.
+- **Context Switching**: Measures Alt-Tab chaos and window switching.
+- **Rage Pet Mascot**: A virtual character that reacts to your stress and focus levels.
+- **Real-time Dashboard**: A sleek, Apple-level glassmorphic Bento dashboard powered by Framer Motion.
 - **Local SQLite Storage**: Your data never leaves your machine. Everything is stored locally in an optimized, batched SQLite database.
 - **Featherweight**: Built on Tauri and Rust, utilizing minimal CPU footprint and barely any RAM compared to Electron alternatives.
 
