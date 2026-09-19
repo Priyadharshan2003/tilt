@@ -1,34 +1,22 @@
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 mod db;
 mod daemon;
 use tauri::Manager;
 use std::sync::{Arc, Mutex};
 
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
-#[tauri::command]
-fn insert_dummy_event(state: tauri::State<'_, db::DbState>) -> Result<String, String> {
+fn get_events(state: tauri::State<'_, db::DbState>) -> Result<Vec<db::TelemetryEvent>, String> {
     let db = state.db.lock().unwrap();
-    db.execute(
-        "INSERT INTO friction_events (event_type, intensity) VALUES (?1, ?2)",
-        ("dummy_event", 5),
-    ).map_err(|e| e.to_string())?;
-    Ok("Dummy event inserted".to_string())
-}
-
-#[tauri::command]
-fn get_events(state: tauri::State<'_, db::DbState>) -> Result<Vec<db::FrictionEvent>, String> {
-    let db = state.db.lock().unwrap();
-    let mut stmt = db.prepare("SELECT id, timestamp, event_type, intensity FROM friction_events ORDER BY timestamp DESC LIMIT 1000").map_err(|e| e.to_string())?;
+    let mut stmt = db.prepare("SELECT id, timestamp, event_type, app_name, window_title, duration_ms FROM telemetry_events ORDER BY timestamp DESC LIMIT 2000").map_err(|e| e.to_string())?;
+    
     let event_iter = stmt.query_map([], |row| {
-        Ok(db::FrictionEvent {
-            id: row.get(0)?,
+        let id_val: i32 = row.get(0)?;
+        Ok(db::TelemetryEvent {
+            id: id_val.to_string(),
             timestamp: row.get(1)?,
             event_type: row.get(2)?,
-            intensity: row.get(3)?,
+            app_name: row.get(3).unwrap_or_else(|_| "".to_string()),
+            window_title: row.get(4).unwrap_or_else(|_| "".to_string()),
+            duration_ms: row.get(5).unwrap_or(0),
         })
     }).map_err(|e| e.to_string())?;
 
@@ -42,6 +30,7 @@ fn get_events(state: tauri::State<'_, db::DbState>) -> Result<Vec<db::FrictionEv
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_notification::init())
         .plugin(tauri_plugin_opener::init())
         .setup(|app| {
             let app_data_dir = app.path().app_data_dir().expect("Failed to get app data dir");
@@ -57,7 +46,7 @@ pub fn run() {
             app.manage(db_state);
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![greet, insert_dummy_event, get_events])
+        .invoke_handler(tauri::generate_handler![get_events])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #000000;
-  --color-panel: rgba(25, 25, 25, 0.6);
-  --color-primary: #3b82f6;
-  --color-accent: #f97316;
-  --color-danger: #ef4444;
-  --color-success: #10b981;
+  --color-background: #09090B;
+  --color-panel: rgba(24, 24, 27, 0.4);
+  --color-panel-border: rgba(255, 255, 255, 0.05);
+  --color-primary: #ffffff;
+  --color-accent: #2DD4BF; /* Focus Teal */
+  --color-danger: #EF4444; /* Chaos Crimson */
+  --color-warning: #FB923C; /* Busy Orange */
+  --color-success: #10B981;
 }
 
 body {
@@ -18,16 +20,17 @@ body {
   min-height: 100vh;
   background-color: var(--color-background);
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 /* Glassmorphism utilities */
 .glass-panel {
   background: var(--color-panel);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--color-panel-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
 /* Hide scrollbar for timelines */
@@ -37,4 +40,125 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Phase 3: Nuclear State Animation */
+@keyframes pulse-red {
+  0%, 100% { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02); }
+  50% { box-shadow: inset 0 0 0 3px rgba(239, 68, 68, 0.8), inset 0 0 100px rgba(239, 68, 68, 0.2); }
+}
+
+.nuclear-border {
+  animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Fluid Blob Animations */
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.blob-zen {
+  animation: morph 8s ease-in-out infinite, spin 20s linear infinite;
+  background: radial-gradient(circle at 30% 30%, #2DD4BF, #0d9488);
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.4);
+}
+
+.blob-busy {
+  animation: morph 4s ease-in-out infinite, spin 10s linear infinite;
+  background: radial-gradient(circle at 30% 30%, #FB923C, #ea580c);
+  box-shadow: 0 0 60px rgba(251, 146, 60, 0.4);
+}
+
+.blob-chaos {
+  animation: morph 2s ease-in-out infinite, shake 0.5s infinite;
+  background: radial-gradient(circle at 30% 30%, #EF4444, #b91c1c);
+  box-shadow: 0 0 80px rgba(239, 68, 68, 0.6);
+}
+
+.blob-deadline {
+  animation: morph 2s ease-in-out infinite, spin 5s linear infinite;
+  background: radial-gradient(circle at 30% 30%, #a855f7, #7e22ce);
+  box-shadow: 0 0 60px rgba(168, 85, 247, 0.5);
+}
+
+.blob-fire {
+  animation: morph 1.5s ease-in-out infinite, shake 0.3s infinite;
+  background: radial-gradient(circle at 30% 30%, #f97316, #b45309);
+  box-shadow: 0 0 90px rgba(249, 115, 22, 0.7);
+}
+
+/* Phase 5: Holographic ID Card */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.holo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  transform-style: preserve-3d;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.5), 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.holo-overlay {
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.4) 60%,
+    transparent 80%
+  );
+  background-size: 200% 200%;
+  mix-blend-mode: color-dodge;
+  animation: holo-shine 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes holo-shine {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(50%) rotate(0deg); }
+}
+
+/* Phase 7: Vibrant Coder Wrapped */
+.bg-vibrant-coder {
+  background: linear-gradient(135deg, #FF0055 0%, #7C3AED 50%, #06B6D4 100%);
+  background-size: 200% 200%;
+  animation: vibrant-pan 5s ease infinite;
+}
+
+@keyframes vibrant-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
