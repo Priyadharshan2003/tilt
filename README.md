@@ -2,16 +2,11 @@
   <img src="src-tauri/icons/128x128.png" alt="Tilt Logo" width="128" />
   <h1>Tilt</h1>
   <p><strong>A privacy-first developer stress and friction tracking daemon.</strong></p>
-  
-  <p>
-    <a href="https://github.com/your-username/tilt/stargazers"><img src="https://img.shields.io/github/stars/your-username/tilt?style=for-the-badge&color=f97316" alt="Stars" /></a>
-    <a href="https://github.com/your-username/tilt/network/members"><img src="https://img.shields.io/github/forks/your-username/tilt?style=for-the-badge&color=3b82f6" alt="Forks" /></a>
-    <a href="https://github.com/your-username/tilt/issues"><img src="https://img.shields.io/github/issues/your-username/tilt?style=for-the-badge&color=ef4444" alt="Issues" /></a>
-    <a href="https://github.com/your-username/tilt/blob/main/LICENSE"><img src="https://img.shields.io/github/license/your-username/tilt?style=for-the-badge&color=10b981" alt="License" /></a>
-  </p>
 </div>
 
 <hr />
+
+### [📦 Releases](https://github.com/Priyadharshan2003/tilt/releases) | [📦 Packages](https://github.com/users/Priyadharshan2003/packages?repo_name=tilt)
 
 ## 🧠 What is Tilt?
 
