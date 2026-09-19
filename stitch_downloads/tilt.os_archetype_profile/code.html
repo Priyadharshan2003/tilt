@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TILT.OS - DIGITAL TWIN &amp; Archetype Achievements</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#00201c",
+            "surface-container-highest": "#353437",
+            "error-container": "#93000a",
+            "inverse-on-surface": "#313032",
+            "surface-dim": "#131315",
+            "tertiary-fixed-dim": "#ffb2b7",
+            "on-primary": "#003731",
+            "on-tertiary-fixed-variant": "#92002a",
+            "inverse-surface": "#e5e1e4",
+            "tertiary-container": "#ffa6ac",
+            "on-secondary-container": "#d6a9ff",
+            "surface-bright": "#39393b",
+            "on-background": "#e5e1e4",
+            "on-secondary-fixed": "#2c0051",
+            "on-surface-variant": "#bacac5",
+            "background": "#131315",
+            "secondary-container": "#6f00be",
+            "surface-container": "#201f22",
+            "surface-container-high": "#2a2a2c",
+            "on-tertiary": "#67001b",
+            "secondary-fixed-dim": "#ddb7ff",
+            "secondary": "#ddb7ff",
+            "on-primary-container": "#00574d",
+            "outline-variant": "#3c4a46",
+            "primary-container": "#2dd4bf",
+            "on-secondary-fixed-variant": "#6900b3",
+            "tertiary-fixed": "#ffdadb",
+            "surface-container-low": "#1c1b1d",
+            "on-error": "#690005",
+            "on-secondary": "#490080",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#3cddc7",
+            "primary": "#57f1db",
+            "inverse-primary": "#006b5f",
+            "on-tertiary-fixed": "#40000d",
+            "primary-fixed-dim": "#3cddc7",
+            "on-surface": "#e5e1e4",
+            "secondary-fixed": "#f0dbff",
+            "tertiary": "#ffced0",
+            "surface-variant": "#353437",
+            "surface-container-lowest": "#0e0e10",
+            "on-primary-fixed-variant": "#005047",
+            "on-tertiary-container": "#9d002e",
+            "error": "#ffb4ab",
+            "outline": "#859490",
+            "surface": "#131315",
+            "primary-fixed": "#62fae3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.25rem",
+            "space-xl": "2.5rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Space Grotesk"],
+            "headline-sm": ["Geist"],
+            "telemetry-lg": ["JetBrains Mono"],
+            "label-md": ["Geist"],
+            "body-md": ["Geist"],
+            "telemetry-sm": ["JetBrains Mono"],
+            "headline-xl-mobile": ["Space Grotesk"],
+            "display-lg-mobile": ["Space Grotesk"],
+            "body-sm": ["Geist"],
+            "display-lg": ["Space Grotesk"],
+            "body-lg": ["Geist"],
+            "headline-md": ["Space Grotesk"],
+            "telemetry-md": ["JetBrains Mono"],
+            "headline-lg": ["Space Grotesk"],
+            "label-caps": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "telemetry-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "telemetry-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+            "headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "telemetry-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "label-caps": ["10px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    @keyframes orbit-pulse {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.06); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    @keyframes reverse-orbit {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
+    }
+    @keyframes bio-core-pulse {
+      0%, 100% { filter: drop-shadow(0 0 16px rgba(87, 241, 219, 0.4)) drop-shadow(0 0 35px rgba(221, 183, 255, 0.25)); }
+      50% { filter: drop-shadow(0 0 28px rgba(87, 241, 219, 0.8)) drop-shadow(0 0 50px rgba(221, 183, 255, 0.45)); }
+    }
+    .animate-orbit {
+      animation: orbit-pulse 16s linear infinite;
+    }
+    .animate-orbit-reverse {
+      animation: reverse-orbit 22s linear infinite;
+    }
+    .animate-bio-core {
+      animation: bio-core-pulse 4s ease-in-out infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Organic Cognitive Void Canvas Shaders -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-container/10 blur-[100px]"></div>
+<div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] rounded-full bg-secondary-container/20 blur-[130px]"></div>
+<div class="absolute bottom-10 left-1/4 w-80 h-80 rounded-full bg-primary/10 blur-[90px]"></div>
+<div class="absolute inset-0 bg-[radial-gradient(#3c4a46_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
+</div>
+<!-- Shared TopAppBar (Mapped from JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile md:px-margin h-14 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-[0_4px_24px_-2px_rgba(0,0,0,0.6)]">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-surface-container-high/60 border border-outline-variant/30 text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm tracking-tight text-primary font-bold">TILT.OS</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant/60 hidden sm:inline-block">/ ARCHETYPE</span>
+</div>
+</div>
+<!-- Center Stage: Screen Title -->
+<div class="flex items-center gap-space-xs px-3 py-1 rounded-full bg-surface-container-high/40 border border-outline-variant/30 backdrop-blur-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-wider">DIGITAL TWIN</span>
+</div>
+<!-- Desktop Global Nav Cluster -->
+<nav class="hidden md:flex items-center gap-2">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 transition-colors duration-150 px-3 py-1 rounded-lg" href="#home">Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 transition-colors duration-150 px-3 py-1 rounded-lg" href="#insights">Insights</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 transition-colors duration-150 px-3 py-1 rounded-lg" href="#timeline">Timeline</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 transition-colors duration-150 px-3 py-1 rounded-lg" href="#plugins">Plugins</a>
+<a class="font-label-caps text-label-caps text-primary border border-primary/40 bg-primary/10 rounded-full px-3 py-1" href="#profile">Profile</a>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center gap-2">
+<div class="font-label-caps text-label-caps text-primary border border-primary/30 bg-primary/10 rounded px-2 py-0.5 font-bold tracking-widest">
+        PRO
+      </div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="relative z-10 pt-20 pb-28 md:pb-16 px-margin-mobile md:px-margin max-w-7xl mx-auto flex flex-col gap-space-lg">
+<!-- SUB-NAV BREADCRUMB / STATUS HEADER -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-outline-variant/20 pb-4">
+<div class="flex items-center gap-space-xs">
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">TELEMETRY_ID:</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary">TWIN-9941-X9</span>
+<span class="text-outline-variant mx-1">•</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase">NEURAL_SYNC: 99.8%</span>
+</div>
+<!-- Glowing Zen Status Pill -->
+<div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 backdrop-blur-md self-start sm:self-auto">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-caps text-label-caps text-primary tracking-wider font-bold">STATE: ZEN FLOW ACTIVE</span>
+</div>
+</div>
+<!-- HERO PERSONA CARD: THE EXECUTION MACHINE -->
+<section class="relative rounded-xl bg-surface-container-lowest/65 backdrop-blur-xl border border-white/10 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.85)] p-6 md:p-8 overflow-hidden">
+<!-- Specular Highlight Top Keyline -->
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left & Center Specs (Cols 7) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md order-2 lg:order-1">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded border border-secondary/40 bg-secondary-container/20 text-secondary font-label-caps text-label-caps tracking-widest uppercase">
+              Rare Tier Archetype
+            </span>
+<span class="px-2.5 py-0.5 rounded border border-outline-variant/30 bg-surface-container/60 text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+              PERCENTILE: 94TH FOCUS STAMINA
+            </span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-primary/80 tracking-widest uppercase block mb-1">ARCHETYPE CLASSIFICATION</span>
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface tracking-tight uppercase">
+              THE EXECUTION MACHINE
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-xl">
+              Sustained biological high-throughput engine. Suppresses contextual latency and micro-distractions during complex multi-threaded architectural compilation.
+            </p>
+</div>
+<!-- Leveling Bar Component -->
+<div class="rounded-lg bg-surface-container-low/70 border border-outline-variant/20 p-4 mt-2">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="terminal">terminal</span>
+<span class="font-label-caps text-label-caps text-primary tracking-wider font-bold">LVL 19 ARCHITECT</span>
+</div>
+<div class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+<span class="text-on-surface font-semibold">42,850</span> / 50,000 Action Keys
+              </div>
+</div>
+<!-- Progress Bar Frame -->
+<div class="w-full h-2.5 rounded-full bg-surface-container-highest/60 overflow-hidden p-0.5 border border-outline-variant/30">
+<div class="h-full rounded-full bg-gradient-to-r from-primary via-primary-fixed to-secondary relative" style="width: 85.7%;">
+<div class="absolute right-0 top-0 bottom-0 w-2 bg-white/70 shadow-[0_0_8px_#57f1db]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-2 font-telemetry-sm text-telemetry-sm text-outline">
+<span>Next Threshold: +7,150 keys</span>
+<span class="text-primary font-medium">85.7% COMPLETED</span>
+</div>
+</div>
+</div>
+<!-- Right Holographic Dynamic DNA Avatar (Cols 5) -->
+<div class="lg:col-span-5 flex justify-center items-center order-1 lg:order-2 py-4">
+<div class="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+<!-- Outer Orbit Rings (Focus telemetry rings) -->
+<div class="absolute inset-0 rounded-full border border-primary/20 border-dashed animate-orbit"></div>
+<div class="absolute inset-4 rounded-full border border-secondary/30 animate-orbit-reverse"></div>
+<div class="absolute inset-10 rounded-full border border-outline-variant/40"></div>
+<!-- Orbital Marker Nodes -->
+<div class="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_#57f1db]"></div>
+<div class="absolute bottom-6 right-10 w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_12px_#ddb7ff]"></div>
+<div class="absolute top-1/3 left-2 w-1.5 h-1.5 rounded-full bg-primary-fixed-dim shadow-[0_0_6px_#3cddc7]"></div>
+<!-- Bio Cyber Holographic Core Sphere -->
+<div class="relative w-40 h-40 sm:w-44 sm:h-44 rounded-full p-[2px] bg-gradient-to-tr from-primary via-secondary to-primary-container animate-bio-core">
+<div class="w-full h-full rounded-full bg-surface-container-lowest/90 backdrop-blur-2xl flex flex-col items-center justify-center relative overflow-hidden border border-white/20">
+<!-- Inner Hologram Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-secondary/25 mix-blend-screen"></div>
+<!-- Hex Grid Vector Pattern Silhouette -->
+<div class="relative z-10 flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_12px_#57f1db]" data-icon="dna">strikethrough_s</span>
+<span class="font-label-caps text-label-caps text-on-surface font-bold tracking-widest mt-1">CORE: 0x94</span>
+<span class="font-telemetry-sm text-[9px] text-secondary tracking-tight">STAMINA: MAX</span>
+</div>
+<!-- Circular HUD Tick Marks -->
+<div class="absolute inset-2 rounded-full border border-primary/30 border-t-transparent border-b-transparent animate-spin" style="animation-duration: 20s;"></div>
+</div>
+</div>
+<!-- Coordinate readouts around sphere -->
+<div class="absolute bottom-0 left-4 font-telemetry-sm text-[10px] text-on-surface-variant/50">φ: 1.61803</div>
+<div class="absolute top-0 right-4 font-telemetry-sm text-[10px] text-on-surface-variant/50">Ψ_STATE: RESTORED</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CORE TELEMETRY DNA MATRIX -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="hub">hub</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight uppercase">Core Telemetry DNA Matrix</h2>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">SAMPLE_WINDOW: LAST 720h</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Metric 1: Refactor Rate -->
+<div class="rounded-xl bg-surface-container-lowest/65 backdrop-blur-xl border border-white/5 p-5 relative overflow-hidden hover:border-primary/40 transition-colors group">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Refactor Rate</span>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="backspace">backspace</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-telemetry-lg text-3xl font-bold text-primary tracking-tight">3.4%</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">/ threshold 8.0%</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Extremely low delete/backspace penalty
+            </p>
+</div>
+<!-- Sparkline representation -->
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between font-telemetry-sm text-telemetry-sm text-outline">
+<span>EFFICIENCY DELTA</span>
+<span class="text-primary font-semibold">+18.2% vs AVG</span>
+</div>
+</div>
+<!-- Metric 2: Context Volatility -->
+<div class="rounded-xl bg-surface-container-lowest/65 backdrop-blur-xl border border-white/5 p-5 relative overflow-hidden hover:border-secondary/40 transition-colors group">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Context Volatility</span>
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="swap_horiz">swap_horiz</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-telemetry-lg text-3xl font-bold text-secondary tracking-tight">1.8</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">sw/hr</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Laser focus • minimal alt-tab context leakage
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between font-telemetry-sm text-telemetry-sm text-outline">
+<span>DEEP SESSION RATIO</span>
+<span class="text-secondary font-semibold">96.4% IN-BUFFER</span>
+</div>
+</div>
+<!-- Metric 3: Peak Focus Velocity -->
+<div class="rounded-xl bg-surface-container-lowest/65 backdrop-blur-xl border border-white/5 p-5 relative overflow-hidden hover:border-primary/40 transition-colors group">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Peak Focus Velocity</span>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="speed">speed</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-telemetry-lg text-3xl font-bold text-on-surface tracking-tight">98</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary uppercase">WPM sustained</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              High-agency syntax throughput index
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between font-telemetry-sm text-telemetry-sm text-outline">
+<span>BURST MAXIMUM</span>
+<span class="text-on-surface font-semibold">124 WPM</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ACHIEVEMENTS BADGES BENTO GRID -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="military_tech">military_tech</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight uppercase">Achievement Protocols &amp; Badges</h2>
+</div>
+<div class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+          UNLOCKED: <span class="text-primary font-bold">3</span> / 4
+        </div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Badge 1: Flow State God (Unlocked) -->
+<div class="rounded-xl bg-surface-container-lowest/70 backdrop-blur-xl border border-primary/30 p-5 flex flex-col justify-between relative overflow-hidden group shadow-[0_0_16px_rgba(87,241,219,0.08)]">
+<!-- Top aura accent -->
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/40 flex items-center justify-center text-primary shadow-[0_0_12px_rgba(87,241,219,0.2)]">
+<span class="material-symbols-outlined text-[22px]" data-icon="waves" style="font-variation-settings: 'FILL' 1;">waves</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-caps bg-primary/15 text-primary border border-primary/30">
+                UNLOCKED
+              </span>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Flow State God</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                3hr+ uninterrupted IDE block without telemetry drop.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-3 border-t border-outline-variant/20 flex items-center justify-between font-telemetry-sm text-[11px]">
+<span class="text-outline">ACQUIRED</span>
+<span class="text-primary font-mono font-medium">TIMESTAMP: 03:14:22</span>
+</div>
+</div>
+<!-- Badge 2: Rage Restraint (Unlocked) -->
+<div class="rounded-xl bg-surface-container-lowest/70 backdrop-blur-xl border border-primary/30 p-5 flex flex-col justify-between relative overflow-hidden group shadow-[0_0_16px_rgba(87,241,219,0.08)]">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-secondary/15 border border-secondary/40 flex items-center justify-center text-secondary shadow-[0_0_12px_rgba(221,183,255,0.25)]">
+<span class="material-symbols-outlined text-[22px]" data-icon="shield" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-caps bg-primary/15 text-primary border border-primary/30">
+                UNLOCKED
+              </span>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Rage Restraint</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                0 nuclear deletions or impulsive git rollbacks during broken production build.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-3 border-t border-outline-variant/20 flex items-center justify-between font-telemetry-sm text-[11px]">
+<span class="text-outline">TILT STABILITY</span>
+<span class="text-secondary font-mono font-medium">100% DISCIPLINE</span>
+</div>
+</div>
+<!-- Badge 3: Night Owl Protocol (Unlocked) -->
+<div class="rounded-xl bg-surface-container-lowest/70 backdrop-blur-xl border border-primary/30 p-5 flex flex-col justify-between relative overflow-hidden group shadow-[0_0_16px_rgba(87,241,219,0.08)]">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-fixed/10 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-primary/30 flex items-center justify-center text-primary shadow-[0_0_12px_rgba(87,241,219,0.15)]">
+<span class="material-symbols-outlined text-[22px]" data-icon="bedtime" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-caps bg-primary/15 text-primary border border-primary/30">
+                UNLOCKED
+              </span>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Night Owl Protocol</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                2am critical deployment executed with 90+ focus telemetry index.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-3 border-t border-outline-variant/20 flex items-center justify-between font-telemetry-sm text-[11px]">
+<span class="text-outline">CIRCADIAN INDEX</span>
+<span class="text-primary font-mono font-medium">02:18 AM VERIFIED</span>
+</div>
+</div>
+<!-- Badge 4: Monk Mode (Locked) -->
+<div class="rounded-xl bg-surface-container-lowest/40 backdrop-blur-md border border-outline-variant/20 p-5 flex flex-col justify-between relative overflow-hidden opacity-75 hover:opacity-100 transition-opacity group">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high/40 border border-outline-variant/30 flex items-center justify-center text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[22px]" data-icon="lock">lock</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-caps bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
+                LOCKED
+              </span>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant">Monk Mode</h3>
+<p class="font-body-sm text-body-sm text-outline mt-1">
+                7-day consecutive streak with daily focus score &gt;85.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-3 border-t border-outline-variant/15 flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-telemetry-sm text-[11px] text-outline">
+<span>PROGRESSION</span>
+<span class="text-on-surface font-mono">5 / 7 DAYS</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full" style="width: 71.4%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RECENT TELEMETRY RECORD TERMINAL STRIP -->
+<section class="rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl border border-white/5 p-4 flex flex-col gap-2">
+<div class="flex items-center justify-between border-b border-outline-variant/15 pb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+          REALTIME NEURAL TELEMETRY STREAM
+        </span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">LATENCY: 4ms</span>
+</div>
+<div class="space-y-1.5 font-telemetry-sm text-telemetry-sm">
+<div class="flex items-center justify-between text-on-surface-variant hover:bg-surface-container-high/30 p-1.5 rounded transition-colors">
+<span class="text-outline">14:02:45.109</span>
+<span class="text-primary font-mono">[FOCUS_LOCK]</span>
+<span class="truncate max-w-[200px] sm:max-w-md">Archetype stability threshold confirmed: 94th percentile</span>
+<span class="text-secondary font-mono">STATUS_OK</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant hover:bg-surface-container-high/30 p-1.5 rounded transition-colors">
+<span class="text-outline">13:58:12.871</span>
+<span class="text-on-surface font-mono">[KEYSTROKE_CLUSTER]</span>
+<span class="truncate max-w-[200px] sm:max-w-md">+240 continuous actions in active buffer / zero tilt detected</span>
+<span class="text-primary font-mono">+120 XP</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared BottomNavBar (Mapped from JSON) -->
+<!-- Prohibited on desktop via md:hidden; Profile active -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-2 pb-safe bg-surface-container-lowest/85 backdrop-blur-2xl shadow-[0_-8px_32px_rgba(0,0,0,0.7)]">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant px-2.5 py-1.5 opacity-70 hover:opacity-100 hover:text-primary transition-all duration-200 active:scale-90" href="#home">
+<span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<!-- Insights (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant px-2.5 py-1.5 opacity-70 hover:opacity-100 hover:text-primary transition-all duration-200 active:scale-90" href="#insights">
+<span class="material-symbols-outlined text-[20px]" data-icon="insights">insights</span>
+<span class="font-label-caps text-label-caps">Insights</span>
+</a>
+<!-- Timeline (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant px-2.5 py-1.5 opacity-70 hover:opacity-100 hover:text-primary transition-all duration-200 active:scale-90" href="#timeline">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+<span class="font-label-caps text-label-caps">Timeline</span>
+</a>
+<!-- Plugins (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant px-2.5 py-1.5 opacity-70 hover:opacity-100 hover:text-primary transition-all duration-200 active:scale-90" href="#plugins">
+<span class="material-symbols-outlined text-[20px]" data-icon="extension">extension</span>
+<span class="font-label-caps text-label-caps">Plugins</span>
+</a>
+<!-- Profile (ACTIVE TAB: Mapped to Digital Twin / Archetype Profile) -->
+<a class="flex flex-col items-center justify-center gap-1 text-primary bg-primary/10 border border-primary/30 rounded-xl px-2.5 py-1.5 shadow-[0_0_12px_rgba(87,241,219,0.15)] active:scale-90 transition-transform duration-150 ease-out" href="#profile">
+<span class="material-symbols-outlined text-[20px]" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+</body></html>

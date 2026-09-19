@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TILT.OS - INSIGHTS &amp; TELEMETRY</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#00201c",
+            "surface-container-highest": "#353437",
+            "error-container": "#93000a",
+            "inverse-on-surface": "#313032",
+            "surface-dim": "#131315",
+            "tertiary-fixed-dim": "#ffb2b7",
+            "on-primary": "#003731",
+            "on-tertiary-fixed-variant": "#92002a",
+            "inverse-surface": "#e5e1e4",
+            "tertiary-container": "#ffa6ac",
+            "on-secondary-container": "#d6a9ff",
+            "surface-bright": "#39393b",
+            "on-background": "#e5e1e4",
+            "on-secondary-fixed": "#2c0051",
+            "on-surface-variant": "#bacac5",
+            "background": "#131315",
+            "secondary-container": "#6f00be",
+            "surface-container": "#201f22",
+            "surface-container-high": "#2a2a2c",
+            "on-tertiary": "#67001b",
+            "secondary-fixed-dim": "#ddb7ff",
+            "secondary": "#ddb7ff",
+            "on-primary-container": "#00574d",
+            "outline-variant": "#3c4a46",
+            "primary-container": "#2dd4bf",
+            "on-secondary-fixed-variant": "#6900b3",
+            "tertiary-fixed": "#ffdadb",
+            "surface-container-low": "#1c1b1d",
+            "on-error": "#690005",
+            "on-secondary": "#490080",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#3cddc7",
+            "primary": "#57f1db",
+            "inverse-primary": "#006b5f",
+            "on-tertiary-fixed": "#40000d",
+            "primary-fixed-dim": "#3cddc7",
+            "on-surface": "#e5e1e4",
+            "secondary-fixed": "#f0dbff",
+            "tertiary": "#ffced0",
+            "surface-variant": "#353437",
+            "surface-container-lowest": "#0e0e10",
+            "on-primary-fixed-variant": "#005047",
+            "on-tertiary-container": "#9d002e",
+            "error": "#ffb4ab",
+            "outline": "#859490",
+            "surface": "#131315",
+            "primary-fixed": "#62fae3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.25rem",
+            "space-xl": "2.5rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Space Grotesk"],
+            "headline-sm": ["Geist"],
+            "telemetry-lg": ["JetBrains Mono"],
+            "label-md": ["Geist"],
+            "body-md": ["Geist"],
+            "telemetry-sm": ["JetBrains Mono"],
+            "headline-xl-mobile": ["Space Grotesk"],
+            "display-lg-mobile": ["Space Grotesk"],
+            "body-sm": ["Geist"],
+            "display-lg": ["Space Grotesk"],
+            "body-lg": ["Geist"],
+            "headline-md": ["Space Grotesk"],
+            "telemetry-md": ["JetBrains Mono"],
+            "headline-lg": ["Space Grotesk"],
+            "label-caps": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "telemetry-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "telemetry-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "telemetry-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-caps": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-glass {
+      background: rgba(18, 18, 22, 0.65);
+      backdrop-filter: blur(16px) saturate(140%);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+    }
+    .custom-gradient-border {
+      position: relative;
+      background: rgba(18, 18, 22, 0.75);
+      backdrop-filter: blur(20px);
+    }
+    .custom-gradient-border::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(87, 241, 219, 0.4), rgba(221, 183, 255, 0.3), rgba(255, 255, 255, 0.05));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    @keyframes slowPulse {
+      0%, 100% { opacity: 0.18; transform: scale(1) translate(0px, 0px); }
+      50% { opacity: 0.28; transform: scale(1.08) translate(15px, -10px); }
+    }
+    .bio-blob-zen {
+      animation: slowPulse 8s ease-in-out infinite alternate;
+    }
+    .bio-blob-flow {
+      animation: slowPulse 6s ease-in-out 2s infinite alternate;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary/20 selection:text-primary pb-28">
+<!-- Organic Cognitive Atmosphere Blobs -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="bio-blob-zen absolute -top-24 -left-20 w-96 h-96 rounded-full bg-primary-container blur-3xl opacity-20"></div>
+<div class="bio-blob-flow absolute top-1/3 -right-24 w-[420px] h-[420px] rounded-full bg-secondary-container blur-3xl opacity-15"></div>
+<div class="bio-blob-zen absolute bottom-10 left-1/4 w-80 h-80 rounded-full bg-primary blur-3xl opacity-10"></div>
+</div>
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile h-14 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-[0_4px_24px_-2px_rgba(0,0,0,0.6)]">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-headline-sm" data-icon="terminal">terminal</span>
+<span class="text-headline-sm font-headline-sm tracking-tight text-primary font-bold">TILT.OS</span>
+<span class="text-outline-variant/60 font-headline-sm text-headline-sm">/</span>
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight hidden sm:inline">INSIGHTS &amp; TELEMETRY</h1>
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight sm:hidden">INSIGHTS</h1>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="hidden md:flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-high/60 border border-outline-variant/30 text-telemetry-sm font-telemetry-sm text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>NEURAL LINK ACTIVE</span>
+</div>
+<span class="text-label-caps font-label-caps px-2 py-0.5 rounded border border-primary/40 bg-primary/10 text-primary font-semibold">PRO</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-high/40 hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</header>
+<!-- Primary Cockpit Container -->
+<main class="relative z-10 pt-20 px-margin-mobile md:px-margin max-w-7xl mx-auto space-y-space-lg">
+<!-- Sub-header HUD Strip -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-outline-variant/20 pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#2DD4BF]"></span>
+<span class="text-label-caps font-label-caps font-bold">ZEN_LOCK: 89%</span>
+</div>
+<span class="text-telemetry-sm font-telemetry-sm text-outline">EPOCH_TS: 1714582910</span>
+</div>
+<div class="flex items-center gap-space-xs text-telemetry-sm font-telemetry-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="tune">tune</span>
+<span>WINDOW: LAST 30 DAYS (DIAGNOSTIC)</span>
+</div>
+</div>
+<!-- Top Metrics Section (3 Grid Bento Cards) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Longest Streak -->
+<div class="custom-glass rounded-xl p-space-md relative overflow-hidden group hover:border-primary/40 transition-all duration-300">
+<div class="absolute top-0 right-0 p-space-md opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="bolt">bolt</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="text-label-caps font-label-caps text-outline tracking-wider">TELEMETRY_RECORD_01</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-label-caps font-label-caps">FLOW STATE</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mb-1">Longest Streak</div>
+<div class="text-headline-xl font-headline-xl text-primary font-bold tracking-tight">112 min</div>
+<div class="mt-space-sm pt-space-xs border-t border-white/5 flex items-center justify-between text-telemetry-sm font-telemetry-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="code">code</span>
+            Neovim Environment
+          </span>
+<span class="text-primary font-medium">98.4% APM Lock</span>
+</div>
+</div>
+<!-- Card 2: Distraction Cost -->
+<div class="custom-glass rounded-xl p-space-md relative overflow-hidden group hover:border-secondary/40 transition-all duration-300">
+<div class="absolute top-0 right-0 p-space-md opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="hourglass_bottom">hourglass_bottom</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="text-label-caps font-label-caps text-outline tracking-wider">COGNITIVE_LEAK</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-label-caps font-label-caps font-semibold">-64% VS YESTERDAY</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mb-1">Distraction Cost</div>
+<div class="text-headline-xl font-headline-xl text-secondary font-bold tracking-tight">8m 40s</div>
+<div class="mt-space-sm pt-space-xs border-t border-white/5 flex items-center justify-between text-telemetry-sm font-telemetry-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="cancel_presentation">cancel_presentation</span>
+            YouTube / Discord
+          </span>
+<span class="text-primary font-medium">+54m Recovery Saved</span>
+</div>
+</div>
+<!-- Card 3: Peak Velocity -->
+<div class="custom-glass rounded-xl p-space-md relative overflow-hidden group hover:border-primary/40 transition-all duration-300">
+<div class="absolute top-0 right-0 p-space-md opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="speed">speed</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="text-label-caps font-label-caps text-outline tracking-wider">CONTEXT_SWITCHING</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-label-caps font-label-caps">SAFE ZONE</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mb-1">Peak Velocity</div>
+<div class="text-headline-xl font-headline-xl text-primary font-bold tracking-tight flex items-baseline gap-2">
+          4.2 <span class="text-headline-sm font-headline-sm text-outline font-normal">switches/min</span>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-white/5 flex items-center justify-between text-telemetry-sm font-telemetry-sm text-on-surface-variant">
+<span class="text-outline">Warning threshold: &gt;6/min</span>
+<div class="w-16 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="w-2/3 h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 30-Day Contribution Heatmap Section -->
+<section class="custom-glass rounded-xl p-space-md md:p-space-lg space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-sm border-b border-white/5">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-caps font-label-caps text-primary tracking-widest font-semibold">NEURAL COMMIT MATRIX</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-body-sm font-body-sm text-outline">30-Day Focus Score</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface font-semibold mt-0.5">Focus Architecture &amp; Regularity</h2>
+</div>
+<div class="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/30 text-primary text-telemetry-sm font-telemetry-sm font-semibold flex items-center gap-1.5 w-fit">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+          24 of 30 days in Zen Zone
+        </div>
+</div>
+<!-- Matrix Visualization Grid -->
+<div class="overflow-x-auto pb-2">
+<div class="min-w-[620px] space-y-2">
+<!-- Days header -->
+<div class="flex text-telemetry-sm font-telemetry-sm text-outline gap-1.5 pl-8">
+<span class="w-8 text-center">W1</span>
+<span class="w-8 text-center">W2</span>
+<span class="w-8 text-center">W3</span>
+<span class="w-8 text-center">W4</span>
+<span class="w-8 text-center">W5</span>
+</div>
+<div class="flex gap-2">
+<!-- Row labels -->
+<div class="flex flex-col justify-between text-telemetry-sm font-telemetry-sm text-outline text-right pr-1 py-0.5">
+<span>Mon</span>
+<span>Wed</span>
+<span>Fri</span>
+<span>Sun</span>
+</div>
+<!-- 4-5 Weeks Grid Matrix (30 Days mapped) -->
+<div class="grid grid-flow-col grid-rows-7 gap-1.5">
+<!-- Week 1 -->
+<div class="w-7 h-7 rounded bg-primary/80 border border-primary/30 title" title="Day 1: 94 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/60 border border-primary/20" title="Day 2: 78 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/90 border border-primary/40 shadow-[0_0_8px_rgba(45,212,191,0.3)]" title="Day 3: 98 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/30 border border-white/5" title="Day 4: 45 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/95 border border-primary/40 shadow-[0_0_8px_rgba(45,212,191,0.4)]" title="Day 5: 99 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-white/5 border border-white/5" title="Day 6: 12 Focus Score (Rest)"></div>
+<div class="w-7 h-7 rounded bg-primary/20 border border-white/5" title="Day 7: 38 Focus Score"></div>
+<!-- Week 2 -->
+<div class="w-7 h-7 rounded bg-primary/85 border border-primary/30" title="Day 8: 91 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/75 border border-primary/30" title="Day 9: 86 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/90 border border-primary/40 shadow-[0_0_8px_rgba(45,212,191,0.3)]" title="Day 10: 97 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/70 border border-primary/20" title="Day 11: 82 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/80 border border-primary/30" title="Day 12: 89 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-white/5 border border-white/5" title="Day 13: 15 Focus Score (Rest)"></div>
+<div class="w-7 h-7 rounded bg-white/10 border border-white/5" title="Day 14: 25 Focus Score"></div>
+<!-- Week 3 -->
+<div class="w-7 h-7 rounded bg-primary/95 border border-primary/50 shadow-[0_0_10px_rgba(45,212,191,0.5)]" title="Day 15: 100 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/90 border border-primary/30" title="Day 16: 95 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/85 border border-primary/30" title="Day 17: 92 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/40 border border-white/10" title="Day 18: 52 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/75 border border-primary/20" title="Day 19: 84 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/60 border border-primary/20" title="Day 20: 71 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-white/5 border border-white/5" title="Day 21: 18 Focus Score"></div>
+<!-- Week 4 -->
+<div class="w-7 h-7 rounded bg-primary/90 border border-primary/30" title="Day 22: 96 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/80 border border-primary/30" title="Day 23: 88 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/95 border border-primary/40 shadow-[0_0_8px_rgba(45,212,191,0.3)]" title="Day 24: 98 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/85 border border-primary/30" title="Day 25: 93 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/90 border border-primary/30" title="Day 26: 94 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-white/5 border border-white/5" title="Day 27: 10 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/70 border border-primary/20" title="Day 28: 80 Focus Score"></div>
+<!-- Week 5 partial (30 days total) -->
+<div class="w-7 h-7 rounded bg-primary border border-primary shadow-[0_0_12px_#2DD4BF]" title="Day 29: 100 Focus Score"></div>
+<div class="w-7 h-7 rounded bg-primary/85 border border-primary/30" title="Day 30: 92 Focus Score (Today)"></div>
+<div class="w-7 h-7 rounded bg-white/[0.02] border border-dashed border-white/10 opacity-40"></div>
+<div class="w-7 h-7 rounded bg-white/[0.02] border border-dashed border-white/10 opacity-40"></div>
+<div class="w-7 h-7 rounded bg-white/[0.02] border border-dashed border-white/10 opacity-40"></div>
+<div class="w-7 h-7 rounded bg-white/[0.02] border border-dashed border-white/10 opacity-40"></div>
+<div class="w-7 h-7 rounded bg-white/[0.02] border border-dashed border-white/10 opacity-40"></div>
+</div>
+<!-- Heatmap Context Legend & Statistics -->
+<div class="ml-6 pl-6 border-l border-white/10 flex flex-col justify-between py-1 text-telemetry-sm font-telemetry-sm">
+<div>
+<span class="text-label-caps font-label-caps text-outline block mb-1">INTENSITY METRIC</span>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="text-[10px]">Rest</span>
+<div class="flex gap-1">
+<span class="w-3.5 h-3.5 rounded-sm bg-white/5 border border-white/10"></span>
+<span class="w-3.5 h-3.5 rounded-sm bg-primary/30"></span>
+<span class="w-3.5 h-3.5 rounded-sm bg-primary/60"></span>
+<span class="w-3.5 h-3.5 rounded-sm bg-primary/85"></span>
+<span class="w-3.5 h-3.5 rounded-sm bg-primary shadow-[0_0_6px_#2DD4BF]"></span>
+</div>
+<span class="text-[10px] text-primary">Peak Zen</span>
+</div>
+</div>
+<div class="text-outline-variant space-y-1">
+<div>AVG FLOW: <span class="text-on-surface font-semibold">4.8 hrs/day</span></div>
+<div>PEAK DAY: <span class="text-primary font-semibold">Wednesday</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Context Analysis Card & Wrapped Action Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter items-stretch">
+<!-- AI Telemetry Copilot Card (Spans 2 cols on Desktop) -->
+<section class="lg:col-span-2 custom-gradient-border rounded-xl p-space-md md:p-space-lg space-y-space-md">
+<div class="flex items-center justify-between border-b border-white/10 pb-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary/15 border border-secondary/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="neurology">neurology</span>
+</div>
+<div>
+<span class="text-label-caps font-label-caps text-secondary font-semibold tracking-wider">SYNAPSE OBSERVER</span>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Gemini Telemetry Copilot</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-container/30 border border-secondary/20 text-secondary text-telemetry-sm font-telemetry-sm">AUTO-HEALED</span>
+</div>
+<!-- Copilot Narrative Content -->
+<div class="space-y-space-sm">
+<p class="text-body-md font-body-md text-on-surface leading-relaxed">
+<span class="text-primary font-semibold">High momentum</span> observed in backend refactor <span class="font-telemetry-sm text-primary px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-telemetry-sm">(Go/Docker)</span>. Friction spike at <span class="text-secondary font-medium">14:20 PM</span> linked to 7 rapid Chrome tab cycles; auto-silenced Slack DND for 45 mins saved <span class="text-primary font-bold">~32 mins</span> of context recovery.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-container-low/60 border border-white/5 space-y-1">
+<div class="flex items-center gap-1.5 text-telemetry-sm font-telemetry-sm text-outline">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="schema">schema</span>
+                DOMINANT COGNITIVE GRAPH
+              </div>
+<div class="text-telemetry-md font-telemetry-md text-on-surface font-medium">internal/engine/dispatcher.go</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low/60 border border-white/5 space-y-1">
+<div class="flex items-center gap-1.5 text-telemetry-sm font-telemetry-sm text-outline">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="do_not_disturb_on">do_not_disturb_on</span>
+                SUPPRESSION SHIELD
+              </div>
+<div class="text-telemetry-md font-telemetry-md text-on-surface font-medium">14 Notifications Deflected</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Launch Session Wrapped Trigger Card -->
+<section class="custom-glass rounded-xl p-space-md md:p-space-lg flex flex-col justify-between relative overflow-hidden border border-primary/30 group">
+<div class="absolute -right-8 -bottom-8 w-40 h-40 rounded-full bg-primary/10 blur-2xl pointer-events-none group-hover:bg-primary/20 transition-all"></div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-label-caps font-label-caps text-primary tracking-widest font-semibold">SYNTHESIS READY</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface font-bold">Developer Session Wrapped</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Export biometric telemetry, IDE syntax volume, and key cognitive switch milestones into your interactive executive summary.
+          </p>
+</div>
+<div class="pt-space-md">
+<!-- Primary Glowing Action Button -->
+<button class="w-full relative group overflow-hidden rounded-xl px-4 py-3.5 bg-primary/15 hover:bg-primary border border-primary/40 hover:border-primary text-primary hover:text-surface-container-lowest font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(45,212,191,0.25)] hover:shadow-[0_0_32px_rgba(45,212,191,0.6)] transition-all duration-200 active:scale-95" id="wrappedTrigger">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-12" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>LAUNCH SESSION WRAPPED</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Active Telemetry Stream Rows (List View) -->
+<section class="custom-glass rounded-xl p-space-md space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs border-b border-white/5">
+<span class="text-label-caps font-label-caps text-outline">TELEMETRY_LOG_STREAM</span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary">LIVE INGESTION</span>
+</div>
+<div class="divide-y divide-white/[0.03] text-telemetry-sm font-telemetry-sm">
+<div class="py-2.5 flex items-center justify-between hover:bg-white/[0.02] px-2 rounded transition-colors">
+<div class="flex items-center gap-3">
+<span class="text-outline">15:42:01</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 text-label-caps">STREAK</span>
+<span class="text-on-surface">Entered Flow Block 4 (Neovim session: 62 min)</span>
+</div>
+<span class="text-outline-variant font-mono">APM: 78</span>
+</div>
+<div class="py-2.5 flex items-center justify-between hover:bg-white/[0.02] px-2 rounded transition-colors">
+<div class="flex items-center gap-3">
+<span class="text-outline">15:10:14</span>
+<span class="px-2 py-0.5 rounded bg-secondary/15 text-secondary border border-secondary/30 text-label-caps">BRANCH</span>
+<span class="text-on-surface">Git switch: feature/tilt-telemetry-v2 (Clean state)</span>
+</div>
+<span class="text-outline-variant font-mono">LATENCY: 0.14s</span>
+</div>
+<div class="py-2.5 flex items-center justify-between hover:bg-white/[0.02] px-2 rounded transition-colors">
+<div class="flex items-center gap-3">
+<span class="text-outline">14:35:50</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary border border-tertiary/20 text-label-caps">SHIELD</span>
+<span class="text-on-surface">Suppressed 3 notifications from Discord (#general-eng)</span>
+</div>
+<span class="text-primary font-mono">DEFLECTED</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Interactive Wrapped Modal Toast Overlay (Micro-interaction) -->
+<div class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300" id="wrappedModal">
+<div class="custom-glass max-w-md w-full rounded-2xl p-6 border border-primary/50 shadow-[0_0_40px_rgba(45,212,191,0.3)] space-y-4 transform scale-95 transition-transform duration-300" id="modalContent">
+<div class="flex items-center justify-between border-b border-white/10 pb-3">
+<div class="flex items-center gap-2 text-primary font-headline-sm text-headline-sm font-bold">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>SESSION WRAPPED v2.4</span>
+</div>
+<button class="text-outline hover:text-on-surface" id="closeModal">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="space-y-3 text-body-md font-body-md text-on-surface">
+<div class="p-3 rounded-lg bg-surface-container-highest/40 border border-white/5 flex justify-between">
+<span class="text-outline">Total Deep Work:</span>
+<span class="text-primary font-bold">5h 42m</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-highest/40 border border-white/5 flex justify-between">
+<span class="text-outline">Distraction Resistance:</span>
+<span class="text-primary font-bold">96.2%</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-highest/40 border border-white/5 flex justify-between">
+<span class="text-outline">Tilt Warning Level:</span>
+<span class="text-primary font-bold">0 (Calm Zen)</span>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-primary text-surface-container-lowest font-headline-sm font-bold hover:bg-primary-fixed transition-colors" id="confirmClose">
+        COMPLETE REVIEW
+      </button>
+</div>
+</div>
+<!-- Shared Component: BottomNavBar -->
+<!-- Semantic Mapping: Current Destination is 'Insights' -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-2 pb-safe bg-surface-container-lowest/85 backdrop-blur-2xl border-t border-outline-variant/30 shadow-[0_-8px_32px_rgba(0,0,0,0.7)]">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant px-2.5 py-1.5 opacity-70 hover:opacity-100 hover:text-primary hover:bg-surface-container-high/40 transition-all duration-200 active:scale-90" href="/home">
+<span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span>
+<span class="text-label-caps font-label-caps">Home</span>
+</a>
+<!-- Insights (Active: Direct match with current screen) -->
+<a class="flex flex-col items-center justify-center gap-1 text-primary dark:text-primary bg-primary/10 border border-primary/30 rounded-xl px-2.5 py-1.5 shadow-[0_0_12px_rgba(87,241,219,0.15)] active:scale-90 transition-transform duration-150 ease-out" href="/insights">
+<span class="material-symbols-outlined text-[20px]" data-icon="insights" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="text-label-caps font-label-caps">Insights</span>
+</a>
+<!-- Timeline (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant px-2.5 py-1.5 opacity-70 hover:opacity-100 hover:text-primary hover:bg-surface-container-high/40 transition-all duration-200 active:scale-90" href="/timeline">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+<span class="text-label-caps font-label-caps">Timeline</span>
+</a>
+<!-- Plugins (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant px-2.5 py-1.5 opacity-70 hover:opacity-100 hover:text-primary hover:bg-surface-container-high/40 transition-all duration-200 active:scale-90" href="/plugins">
+<span class="material-symbols-outlined text-[20px]" data-icon="extension">extension</span>
+<span class="text-label-caps font-label-caps">Plugins</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant px-2.5 py-1.5 opacity-70 hover:opacity-100 hover:text-primary hover:bg-surface-container-high/40 transition-all duration-200 active:scale-90" href="/profile">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+<span class="text-label-caps font-label-caps">Profile</span>
+</a>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+    const wrappedTrigger = document.getElementById('wrappedTrigger');
+    const wrappedModal = document.getElementById('wrappedModal');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.getElementById('closeModal');
+    const confirmClose = document.getElementById('confirmClose');
+
+    function openModal() {
+      wrappedModal.classList.remove('hidden');
+      setTimeout(() => {
+        wrappedModal.classList.remove('opacity-0');
+        modalContent.classList.remove('scale-95');
+        modalContent.classList.add('scale-100');
+      }, 10);
+    }
+
+    function hideModal() {
+      wrappedModal.classList.add('opacity-0');
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+      setTimeout(() => {
+        wrappedModal.classList.add('hidden');
+      }, 300);
+    }
+
+    if (wrappedTrigger) wrappedTrigger.addEventListener('click', openModal);
+    if (closeModal) closeModal.addEventListener('click', hideModal);
+    if (confirmClose) confirmClose.addEventListener('click', hideModal);
+
+    wrappedModal.addEventListener('click', (e) => {
+      if (e.target === wrappedModal) hideModal();
+    });
+  </script>
+</body></html>
